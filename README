@@ -1,0 +1,63 @@
+XPMTranslator
+version 1.1.1 (x86 version)
+by Carsten B. Larsen 
+based almost entirely on version 1.1.0 by Ernest Tomlinson.
+
+What is it?
+
+XPMTranslator is a translator add-on, written for the Translation Kit for BeOS R4 for Intel, which reads in XPM graphics files and converts them to Be's internal bitmap representation, and which also can write out XPM files from Be bitmap data.  This allows transparent use of XPM images by ShowImage, or any other application which uses Datatypes.  
+
+How to Install
+
+The XPM Translator should be placed in a Translator add-on directory. The one you should probably use is usually located in /boot/home/config/add-ons/Translators.
+You should be able to put XPMTranslator there by dragging it to the link saying 
+"Drop XPMTranslator Here to install"
+
+More info about XPM
+
+XPM files, MIME type "image/x-xpixmap", are designed for portable, if wasteful, and extensible representation of pixmaps of any desired color depth.  Transparency is supported, which this XPMTranslator recognizes.  Detailed information on the format is available at the XPM Home page at the following address:
+
+http://www.inria.fr/koala/lehors/xpm.html
+
+More info about XPMTranslator
+
+Well, currently there is not any. But if anything should happen, the news would be at
+
+http://proglet.com/software/XPMTranslator.html
+
+Version history (latest versions first)
+
+Version 1.1.1 (3 April 2000)
+
+The very latest thing to happen to the XPM Translator, was that I updated the documentation a bit to reflect that I now have made it available for download at my own website  at
+
+http://proglet.com/software/XPMTranslator.html
+
+The translator itself has not been changed, so I have not given it a new version number.
+
+Version 1.1.1 (19 June 1999) Ported to R4 x86, both read and write should work now. Iimproved the precision when converting  from RGB16 and RGB15 bitmaps, fixed some endianness issues for various bitmap formats, that should improve the PPC version slightly, if it gets ported back.
+
+All versions before this were written by Ernest Thomlinson
+
+Version 1.1.0 (10 May 1998):  added write capability; added hash-table code to XPM scanning
+functions, to improve speed of translation.
+
+XPMTranslator is now extremely forgiving.  Colors in XPM files can be specified, among other ways, with the names of the X colors defined in the X11 rgb.txt file.  To cover this possibility, I hardcoded a list of X colors into XPMTranslator, basing the RGB values for them on an rgb.txt file taken from an old XFree86 installation (version 3.1.1, I think.)  Any colors not found in this list, or otherwise not defined, are given the RGB value #000000, or dead black.  Pixels undefined, thanks to corruption of the XPM file or for some other reason, are also filled in with black.
+
+I've added some improvements to the XPM scanning code to improve the poor
+efficiency of the last version of XPMTranslator, 1.0.0.  The time to translate of large XPM files containing many distinct colors is now down to fractions of a second, as opposed to the fractions of a minute needed for version 1.0.0, but is still quite a bit slower than the translation of other sorts of images (TIFF data, say.)
+Writing an XPM file with XPMTranslator, as of BeOS R3, is untestable.  The code works in the Datatypes version of this library, on BeOS PR2 for PPC, if this is any consolation.
+
+I've included with the translator a couple of XPM files for testing:  cross.xpm demonstrates the use of transparency, while sulla.xpm is a large XPM file, a picture of a bust of Roman statesman and dictator L. Cornelius Sulla Felix.
+
+Contact info.
+
+Latest version by:
+Carsten B. Larsen
+email: cblarsen@proglet.com
+http://proglet.com/people/cblarsen.html   
+
+Orignal author:
+Ernest Tomlinson
+email:  etomlins@rohan.sdsu.edu
+web "page":  http://www.ugcs.caltech.edu/~et/
